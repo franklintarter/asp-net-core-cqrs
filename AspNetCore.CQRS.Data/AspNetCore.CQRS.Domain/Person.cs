@@ -6,11 +6,13 @@ namespace AspNetCore.CQRS.Domain
     {
         private Person(){} // ORM
 
-        public Person(string name) : base(Guid.NewGuid())
+        public Person(string name, string email) : base(Guid.NewGuid())
         {
             Name = name;
+            Email = email;
         }
 
         public string Name { get; set; }
+        public string Email { get; set; }
     }
 }
