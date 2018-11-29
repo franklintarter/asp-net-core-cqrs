@@ -4,8 +4,4 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\AspNetCore.CQRS.SharedKernel\AspNetCore.CQRS.SharedKernel.csproj" />
-  </ItemGroup>
-
 </Project>

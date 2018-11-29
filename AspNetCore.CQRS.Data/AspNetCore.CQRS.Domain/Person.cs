@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AspNetCore.CQRS.SharedKernel;
+using System;
 
 namespace AspNetCore.CQRS.Domain
 {
@@ -8,6 +9,9 @@ namespace AspNetCore.CQRS.Domain
 
         public Person(string name, string email) : base(Guid.NewGuid())
         {
+            Guard.NullArgument(name);
+            Guard.NullArgument(email);
+
             Name = name;
             Email = email;
         }
