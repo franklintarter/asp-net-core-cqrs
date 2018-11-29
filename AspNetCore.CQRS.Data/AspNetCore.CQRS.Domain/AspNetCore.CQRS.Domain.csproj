@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CSharpFunctionalExtensions" Version="1.13.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AspNetCore.CQRS.SharedKernel\AspNetCore.CQRS.SharedKernel.csproj" />
   </ItemGroup>
 

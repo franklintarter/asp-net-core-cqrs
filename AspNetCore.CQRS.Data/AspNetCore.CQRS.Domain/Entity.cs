@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AspNetCore.CQRS.Domain
 {
@@ -18,5 +16,45 @@ namespace AspNetCore.CQRS.Domain
         public TId Id { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime LastModifiedAt { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Entity<TId> other))
+                return false;
+
+            if (ReferenceEquals(this, other))
+                return true;
+
+            if (GetRealType() != other.GetRealType())
+                return false;
+
+            return Id.Equals(other.Id);
+        }
+
+        public static bool operator ==(Entity<TId> a, Entity<TId> b)
+        {
+            if (a is null && b is null)
+                return true;
+
+            if (a is null || b is null)
+                return false;
+
+            return a.Equals(b);
+        }
+
+        public static bool operator !=(Entity<TId> a, Entity<TId> b)
+        {
+            return !(a == b);
+        }
+
+        public override int GetHashCode()
+        {
+            return (GetRealType().ToString() + Id).GetHashCode();
+        }
+
+        protected Type GetRealType()
+        {
+            return GetType();
+        }
     }
 }

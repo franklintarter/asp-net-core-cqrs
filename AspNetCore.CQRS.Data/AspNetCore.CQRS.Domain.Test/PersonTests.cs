@@ -13,7 +13,7 @@ namespace AspNetCore.CQRS.Domain.Test
         public void CtorTests()
         {
             new ConstructorTests()
-                .ThrowWhenAnyInputNull_OtherwiseSucceed<Person>("valid name", "test@email.com")
+                .ThrowWhenAnyInputNull_OtherwiseSucceed<Person>(ValidPersonName, ValidEmail)
                 .Run();
         }
     }

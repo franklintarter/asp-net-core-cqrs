@@ -1,4 +1,5 @@
-﻿using AspNetCore.CQRS.SharedKernel;
+﻿using AspNetCore.CQRS.Domain.ValueObjects;
+using AspNetCore.CQRS.SharedKernel;
 using System;
 
 namespace AspNetCore.CQRS.Domain
@@ -7,7 +8,7 @@ namespace AspNetCore.CQRS.Domain
     {
         private Person(){} // ORM
 
-        public Person(string name, string email) : base(Guid.NewGuid())
+        public Person(Name name, Email email) : base(Guid.NewGuid())
         {
             Guard.NullArgument(name);
             Guard.NullArgument(email);
@@ -16,7 +17,7 @@ namespace AspNetCore.CQRS.Domain
             Email = email;
         }
 
-        public string Name { get; set; }
-        public string Email { get; set; }
+        public Name Name { get; set; }
+        public Email Email { get; set; }
     }
 }
