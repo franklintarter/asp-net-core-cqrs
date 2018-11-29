@@ -15,6 +15,9 @@ namespace AspNetCore.CQRS.Data
     {
         public virtual void Configure(EntityTypeBuilder<Person> builder)
         {
+            builder.OwnsOne(x => x.Email).Property(x => x.Value).HasColumnName("Email");
+            builder.OwnsOne(x => x.Name).Property(x => x.Value).HasColumnName("Name");
+            builder.ToTable("Person");
         }
     }
 }

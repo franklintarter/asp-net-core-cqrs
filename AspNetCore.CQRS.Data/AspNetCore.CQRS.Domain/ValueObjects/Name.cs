@@ -16,7 +16,7 @@ namespace AspNetCore.CQRS.Domain.ValueObjects
 
         private Name(){} // ORM
 
-        public string Value { get; }
+        public string Value { get; private set; }
 
         private Name(string value)
         {
