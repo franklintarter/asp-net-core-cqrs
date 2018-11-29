@@ -24,6 +24,12 @@ namespace AspNetCore.CQRS.Data
             base.OnConfiguring(optionsBuilder);
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ApplyConfiguration(new PersonMap());
+            base.OnModelCreating(builder);
+        }
+
         public DbSet<Person> People { get; set; }
     }
 }
