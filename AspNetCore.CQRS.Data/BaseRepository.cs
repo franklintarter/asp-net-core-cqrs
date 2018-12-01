@@ -37,29 +37,25 @@ namespace AspNetCore.CQRS.Data
             return await DataContext.Set<T>().Where(exp).ToListAsync();
         }
 
-        public async Task Insert(T entity)
+        public void Insert(T entity)
         {
             Guard.NullArgument(entity);
 
-            await Entities.AddAsync(entity);
-            await DataContext.SaveChangesAsync();
+            Entities.Add(entity);
         }
 
-        public async Task Update(T entity)
+        public void Update(T entity)
         {
             Guard.NullArgument(entity);
 
-            var oldEntity = await DataContext.FindAsync<T>(entity.Id);
+            var oldEntity = DataContext.Find<T>(entity.Id);
             DataContext.Entry(oldEntity).CurrentValues.SetValues(entity);
-            DataContext.SaveChanges();
         }
 
-        public async Task Delete(T entity)
+        public void Delete(T entity)
         {
             Guard.NullArgument(entity);
-
             Entities.Remove(entity);
-            await DataContext.SaveChangesAsync();
         }
 
         public async Task<bool> Exists(TId id)

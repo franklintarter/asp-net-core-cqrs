@@ -1,5 +1,4 @@
-﻿using AspNetCore.CQRS.Domain;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace AspNetCore.CQRS.Data
 {

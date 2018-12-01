@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AspNetCore.CQRS.Domain.Test.Utils
+﻿namespace AspNetCore.CQRS.Domain.Test.Utils
 {
     using System;
     using System.Collections.Generic;

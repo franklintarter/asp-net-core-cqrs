@@ -1,8 +1,5 @@
 ﻿using AspNetCore.CQRS.Domain.ValueObjects;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AspNetCore.CQRS.Domain.UnitTest
 {

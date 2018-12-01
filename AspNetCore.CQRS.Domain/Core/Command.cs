@@ -1,7 +1,5 @@
 ﻿using FluentValidation.Results;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AspNetCore.CQRS.Domain.Core
 {

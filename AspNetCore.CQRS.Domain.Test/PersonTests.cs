@@ -1,8 +1,5 @@
 ﻿using AspNetCore.CQRS.Domain.Test.Utils.SocialFeed.Domain.Tests.TestUtils;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AspNetCore.CQRS.Domain.Test
 {
