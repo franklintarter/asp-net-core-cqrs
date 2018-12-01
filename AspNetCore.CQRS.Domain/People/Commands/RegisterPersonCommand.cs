@@ -6,7 +6,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AspNetCore.CQRS.Domain.Person.Commands
+namespace AspNetCore.CQRS.Domain.People.Commands
 {
     public class RegisterPersonCommand : IRequest<Result<Guid>>
     {

@@ -1,4 +1,5 @@
-﻿using AspNetCore.CQRS.Domain.ValueObjects;
+﻿using AspNetCore.CQRS.Domain.People;
+using AspNetCore.CQRS.Domain.ValueObjects;
 
 namespace AspNetCore.CQRS.Domain.Test
 {

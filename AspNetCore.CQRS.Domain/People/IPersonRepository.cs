@@ -3,7 +3,7 @@ using AspNetCore.CQRS.Domain.ValueObjects;
 using System;
 using System.Threading.Tasks;
 
-namespace AspNetCore.CQRS.Domain.Person
+namespace AspNetCore.CQRS.Domain.People
 {
     public interface IPersonRepository : IBaseRepository<Person, Guid>
     {
