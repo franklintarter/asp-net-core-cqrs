@@ -11,11 +11,12 @@ namespace AspNetCore.CQRS.Domain
             var now = DateTime.UtcNow;
             CreatedAt = now;
             LastModifiedAt = now;
+            Id = id;
         }
 
-        public TId Id { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime LastModifiedAt { get; set; }
+        public TId Id { get; private set; }
+        public DateTime CreatedAt { get; private set; }
+        public DateTime LastModifiedAt { get; private set; }
 
         public override bool Equals(object obj)
         {

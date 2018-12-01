@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AspNetCore.CQRS.Domain.People;
+using Microsoft.EntityFrameworkCore;
 
 namespace AspNetCore.CQRS.Data
 {

@@ -36,6 +36,7 @@ namespace AspNetCore.CQRS.Domain.People.Commands
             if (personExists != null)
             {
                 return Result.Fail<Guid>("A user is already registered with that email.");
+                // TODO Raise fail event
             }
 
             var person = new Person(request.Name, request.Email);
@@ -43,11 +44,11 @@ namespace AspNetCore.CQRS.Domain.People.Commands
             _repo.Insert(person);
             if (await CommitAsync())
             {
-                // Raise success event
+                // TODO Raise success event
             }
             else
             {
-                // Raise fail event
+                // TODO Raise fail event
                 return Result.Fail<Guid>("Person could not be saved.");
             }
 

@@ -1,4 +1,5 @@
-﻿using AspNetCore.CQRS.Domain.Test.Utils.SocialFeed.Domain.Tests.TestUtils;
+﻿using AspNetCore.CQRS.Domain.People;
+using AspNetCore.CQRS.Domain.Test.Utils.SocialFeed.Domain.Tests.TestUtils;
 using NUnit.Framework;
 
 namespace AspNetCore.CQRS.Domain.Test
