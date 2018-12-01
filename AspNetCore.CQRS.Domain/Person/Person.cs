@@ -2,7 +2,7 @@
 using AspNetCore.CQRS.SharedKernel;
 using System;
 
-namespace AspNetCore.CQRS.Domain
+namespace AspNetCore.CQRS.Domain.Person
 {
     public class Person : Entity<Guid>
     {
