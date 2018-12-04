@@ -1,8 +1,6 @@
 ﻿using AspNetCore.CQRS.Domain.Core;
 using AspNetCore.CQRS.Domain.ValueObjects;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AspNetCore.CQRS.Domain.People.Events
 {

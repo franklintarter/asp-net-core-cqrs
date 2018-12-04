@@ -1,8 +1,9 @@
-﻿using System;
+﻿using MediatR;
+using System;
 
 namespace AspNetCore.CQRS.Domain.Core
 {
-    public abstract class Event<TId>
+    public abstract class Event<TId> : INotification
     {
         public Event(TId aggregateId)
         {
