@@ -35,13 +35,14 @@ namespace AspNetCore.CQRS.Domain.People.Commands
 
             if (personExists != null)
             {
-                return Result.Fail<Guid>("A user is already registered with that email.");
                 // TODO Raise fail event
+                return Result.Fail<Guid>("A user is already registered with that email.");
             }
 
             var person = new Person(request.Name, request.Email);
 
             _repo.Insert(person);
+
             if (await CommitAsync())
             {
                 // TODO Raise success event

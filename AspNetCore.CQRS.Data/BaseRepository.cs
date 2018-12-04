@@ -27,7 +27,7 @@ namespace AspNetCore.CQRS.Data
             return await Entities.ToListAsync();
         }
 
-        public async Task<T> GetById(int id)
+        public async Task<T> GetById(TId id)
         {
             return await Entities.SingleOrDefaultAsync(s => s.Id.Equals(id));
         }
