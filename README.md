@@ -27,8 +27,5 @@ Please feel free to make suggestions or start a discussion about anything relate
 
 ## TODO
 
-- Create Commands (create, update, delete)
-- Add Fluent Validation
-- Create Event System
 - Create View Model
 - Create Web App Example
