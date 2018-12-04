@@ -3,7 +3,7 @@ using System;
 
 namespace AspNetCore.CQRS.Domain.Core
 {
-    public abstract class Event<TId> : INotification
+    public abstract class Event<TId> : INotification, IRequest
     {
         public Event(TId aggregateId)
         {

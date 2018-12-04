@@ -1,4 +1,5 @@
 ﻿using AspNetCore.CQRS.Domain.Core;
+using AspNetCore.CQRS.Domain.People.Events;
 using CSharpFunctionalExtensions;
 using MediatR;
 using System;
@@ -21,7 +22,11 @@ namespace AspNetCore.CQRS.Domain.People.Commands
     {
         private IPersonRepository _repo;
 
-        public DeletePersonCommandHandler(IPersonRepository personRepo, IUnitOfWork unitOfWork) : base(unitOfWork)
+        public DeletePersonCommandHandler(
+            IPersonRepository personRepo,
+            IUnitOfWork unitOfWork,
+            IMediator mediator
+        ) : base(unitOfWork, mediator)
         {
             _repo = personRepo;
         }
@@ -40,7 +45,7 @@ namespace AspNetCore.CQRS.Domain.People.Commands
 
             if (await CommitAsync())
             {
-                // TODO raise success event
+                await Mediator.Send(new DeletePersonEvent(request.PersonId));
             }
             else
             {

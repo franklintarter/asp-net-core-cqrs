@@ -1,4 +1,5 @@
 ﻿using AspNetCore.CQRS.Domain.Core;
+using AspNetCore.CQRS.Domain.People.Events;
 using AspNetCore.CQRS.Domain.ValueObjects;
 using CSharpFunctionalExtensions;
 using MediatR;
@@ -24,7 +25,11 @@ namespace AspNetCore.CQRS.Domain.People.Commands
     {
         private IPersonRepository _repo;
 
-        public RegisterPersonCommandHandler(IPersonRepository repository, IUnitOfWork uow): base(uow)
+        public RegisterPersonCommandHandler(
+            IPersonRepository repository,
+            IUnitOfWork uow,
+            IMediator mediator
+        ): base(uow, mediator)
         {
             _repo = repository;
         }
@@ -45,7 +50,7 @@ namespace AspNetCore.CQRS.Domain.People.Commands
 
             if (await CommitAsync())
             {
-                // TODO Raise success event
+                await Mediator.Send(new RegisterPersonEvent(person.Id, person.Email));
             }
             else
             {
