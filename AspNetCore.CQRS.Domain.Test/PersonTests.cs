@@ -21,8 +21,21 @@ namespace AspNetCore.CQRS.Domain.Test
         {
             var expectedResult = "new name";
             var person = ValidPerson;
+
             person.ChangeName(Name.Create(expectedResult).Value);
+
             Assert.That(person.Name.Value, Is.EqualTo(expectedResult));
+        }
+
+        [Test]
+        public void ChangeEmail_HasCorrectValue()
+        {
+            var expectedResult = "new@email.com";
+            var person = ValidPerson;
+
+            person.ChangeEmail(Email.Create(expectedResult).Value);
+
+            Assert.That(person.Email.Value, Is.EqualTo(expectedResult));
         }
     }
 }

@@ -23,5 +23,10 @@ namespace AspNetCore.CQRS.Domain.People
         {
             Name = name;
         }
+
+        public void ChangeEmail(Email email)
+        {
+            Email = email;
+        }
     }
 }

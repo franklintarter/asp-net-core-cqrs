@@ -43,7 +43,7 @@ namespace AspNetCore.CQRS.Domain.People.Commands
 
             person.ChangeName(request.Name);
 
-            _personRepo.Insert(person);
+            _personRepo.Update(person);
 
             if (await CommitAsync())
             {
