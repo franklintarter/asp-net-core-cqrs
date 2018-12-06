@@ -7,6 +7,6 @@ namespace AspNetCore.CQRS.Domain.People
 {
     public interface IPersonRepository : IBaseRepository<Person, Guid>
     {
-        Task<Person> GetPersonByEmail(Email email);
+        Task<Person> GetPersonByEmailAsync(Email email);
     }
 }

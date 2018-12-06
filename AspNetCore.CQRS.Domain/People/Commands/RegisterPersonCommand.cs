@@ -36,7 +36,7 @@ namespace AspNetCore.CQRS.Domain.People.Commands
 
         public override async Task<Result<Guid>> Handle(RegisterPersonCommand request, CancellationToken cancellationToken)
         {
-            var personExists = await _repo.GetPersonByEmail(request.Email);
+            var personExists = await _repo.GetPersonByEmailAsync(request.Email);
 
             if (personExists != null)
             {

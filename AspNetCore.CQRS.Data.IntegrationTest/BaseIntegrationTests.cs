@@ -1,35 +1,33 @@
-using AspNetCore.CQRS.Data;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
+using System.Threading.Tasks;
 
-namespace Tests
+namespace AspNetCore.CQRS.Data.IntegrationTest
 {
-    public class Tests
+    public class BaseIntegrationTests
     {
-        private DataContext _context;
+        protected DataContext Context { get; private set; }
+        protected TestDataSeeder Seeder { get; private set; }
 
         [SetUp]
-        public void Setup()
+        public async Task Setup()
         {
             var dbopts = new DbContextOptionsBuilder<DataContext>()
-                .UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=SocialFeed;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+                .UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AspNetCoreCQRS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
                 .Options;
 
-            _context = new DataContext(dbopts);
-            _context.Database.Migrate();
+            Context = new DataContext(dbopts);
+            Context.Database.Migrate();
 
-            //DataSeeder = new DataSeeder(_context);
-            //DataSeeder.ClearSeedData();
-            //DataSeeder.Seed();
-
-            _context.Dispose();
-            _context = new DataContext(dbopts);
+            Seeder = new TestDataSeeder(Context);
+            await Seeder.ClearSeedData();
+            await Seeder.Seed();
         }
 
-        [Test]
-        public void Test1()
+        [TearDown]
+        public async Task TearDown()
         {
-            Assert.Pass();
+            await Seeder.ClearSeedData();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace AspNetCore.CQRS.Data.Repositories
             _context = context;
         }
 
-        public async Task<Person> GetPersonByEmail(Email email)
+        public async Task<Person> GetPersonByEmailAsync(Email email)
         {
             return await _context.People.FirstOrDefaultAsync(x => x.Email.Value == email.Value);
         }
