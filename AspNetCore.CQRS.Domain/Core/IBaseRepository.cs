@@ -8,7 +8,7 @@ namespace AspNetCore.CQRS.Domain.Core
     public interface IBaseRepository<T, TId>
     {
         Task<IEnumerable<T>> GetAll();
-        Task<T> GetById(TId id);
+        Task<T> GetByIdAsync(TId id);
         Task<List<T>> WhereAsync(Expression<Func<T, bool>> exp);
         void Insert(T entity);
         void Update(T entity);

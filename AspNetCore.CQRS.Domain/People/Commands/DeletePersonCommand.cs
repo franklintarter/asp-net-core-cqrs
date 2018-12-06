@@ -33,7 +33,7 @@ namespace AspNetCore.CQRS.Domain.People.Commands
 
         public override async Task<Result> Handle(DeletePersonCommand request, CancellationToken cancellationToken)
         {
-            var person = await _repo.GetById(request.PersonId);
+            var person = await _repo.GetByIdAsync(request.PersonId);
 
             if (person == null)
             {

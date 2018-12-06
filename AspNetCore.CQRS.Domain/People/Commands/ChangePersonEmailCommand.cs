@@ -35,7 +35,7 @@ namespace AspNetCore.CQRS.Domain.People.Commands
 
         public override async Task<Result> Handle(ChangePersonEmailCommand request, CancellationToken cancellationToken)
         {
-            var person = await _repo.GetById(request.PersonId);
+            var person = await _repo.GetByIdAsync(request.PersonId);
 
             if (person == null)
             {
