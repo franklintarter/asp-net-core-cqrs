@@ -8,7 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace AspNetCore.CQRS.Data
+namespace AspNetCore.CQRS.Data.Repositories
 {
     public abstract class BaseRepository<T, TId> : IBaseRepository<T, TId> where T : Entity<TId>
     {

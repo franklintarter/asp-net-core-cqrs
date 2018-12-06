@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace AspNetCore.CQRS.Domain.People.Events
 {
-    public class CustomerEventHandler :
+    public class PersonEventHandler :
         INotificationHandler<ChangePersonEmailEvent>,
         INotificationHandler<ChangePersonNameEvent>,
         INotificationHandler<DeletePersonEvent>,
